@@ -1,7 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.10;
 
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol";
+//import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol";
+import 'openzeppelin-solidity/contracts/access/Ownable.sol';
 
 struct ApprovalRequestData {
     uint id;
@@ -19,7 +20,7 @@ contract ApprovalRequest is Ownable {
     }
 
     // Creates a new approval request, adds it to contract storage and returns the id
-    function create(string calldata _approverEmail, string calldata _contents, uint _approvalWindowMinutes) external returns (uint, uint) {
+    function create(string calldata _approverEmail, string calldata _contents, uint _approvalWindowMinutes) external returtiacns (uint, uint) {
         ApprovalRequestData memory _data;
         uint _id = block.timestamp;
         _data.id = _id;
