@@ -4,10 +4,8 @@ My final project will consist of a DNS-based approval system. It will reach out 
 
 ### Approval Contract Example Workflow
 1. User gathers the information related to the approval request
-  - Name of approver(s)
   - Email address of approver(s)
   - Content being approved
-  - Valid responses
   - Approval window (expressed in minutes)
 
 2. User visits the contract web user interface and fills out a form
