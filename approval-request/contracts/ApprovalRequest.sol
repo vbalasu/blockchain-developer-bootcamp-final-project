@@ -34,6 +34,7 @@ contract ApprovalRequest is Ownable {
     // Sets the approval response for the given index
     // If response is already set, return an error
     function setResponse(uint _index, string calldata _response) external onlyOwner {
+        require(!hasExpired(_index), "Approval request has already expired");
         require(bytes(data[_index].response).length == 0, "Response is already set");
         data[_index].response = _response;
     }
@@ -44,8 +45,8 @@ contract ApprovalRequest is Ownable {
     }
 
     // Returns whether an approval request has expired or not
-    function hasExpired(uint _index) public returns (bool) {
+    function hasExpired(uint _index) public view returns (bool) {
         uint expirationTime = data[_index].id + (data[_index].approvalWindowMinutes * 60);
-        return block.timestamp <= expirationTime;
+        return block.timestamp > expirationTime;
     }
 }
