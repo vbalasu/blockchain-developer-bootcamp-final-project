@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+    <title>Approval Requests</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Approval Requests</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Create Request</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">List Requests</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+    <div class="container mt-2">
+        <form>
+            <div class="mb-3">
+                <label for="approverEmail" class="form-label">Approver Email</label>
+                <input type="email" class="form-control" name="approverEmail" id="approverEmail" placeholder="someone@example.com">
+            </div>
+            <div class="mb-3">
+                <label for="contents" class="form-label">Contents</label>
+                <textarea name="contents" class="form-control" id="" rows="5"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="approvalWindowMinutes" class="form-label">Approval Window (minutes)</label>
+                <input type="number" class="form-control" name="approvalWindowMinutes" id="approvalWindowMinutes">
+            </div>
+            <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+    </div>
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
