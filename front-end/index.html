@@ -30,15 +30,16 @@
         <form>
             <div class="mb-3">
                 <label for="approverEmail" class="form-label">Approver Email</label>
-                <input type="email" class="form-control" name="approverEmail" id="approverEmail" placeholder="someone@example.com">
+                <input type="email" class="form-control" name="approverEmail" id="approverEmail" placeholder="someone@example.com" required>
             </div>
             <div class="mb-3">
                 <label for="contents" class="form-label">Contents</label>
-                <textarea name="contents" class="form-control" id="" rows="5"></textarea>
+                <textarea name="contents" class="form-control" id="" rows="5" required></textarea>
             </div>
             <div class="mb-3">
                 <label for="approvalWindowMinutes" class="form-label">Approval Window (minutes)</label>
-                <input type="number" class="form-control" name="approvalWindowMinutes" id="approvalWindowMinutes">
+                <input type="number" class="form-control" name="approvalWindowMinutes" id="approvalWindowMinutes" required min="1" max="525600" value="1440" aria-describedby="approvalWindowMinutesHelp">
+                <div id="approvalWindowMinutesHelp" class="form-text">360 minutes = 6 hours | 1440 minutes = 24 hours | 10080 minutes = 7 days | 44640 minutes = 31 days | 525600 minutes = 365 days</div>
             </div>
             <button type="submit" class="btn btn-primary">Create</button>
         </form>
