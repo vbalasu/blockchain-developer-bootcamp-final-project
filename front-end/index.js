@@ -228,7 +228,8 @@ var abi = [
       "constant": true
     }
   ]
-var contractAddress = '0xe944f8789EB6d4F809373Be603a8Fd852D00454d';
+//var contractAddress = '0xe944f8789EB6d4F809373Be603a8Fd852D00454d';  //Ganache
+var contractAddress = '0x7739083944c0ccd886f3c4c22333efdcd647796b';  //Ropsten
 var approvalRequest; 
 
 async function submitTransaction(data) {
