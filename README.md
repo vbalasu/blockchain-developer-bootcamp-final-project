@@ -1,6 +1,6 @@
 # blockchain-developer-bootcamp-final-project
 
-My final project will consist of a DNS-based approval system. It will reach out to regular Internet users (outside the blockchain) with an approval request, and record their response (or lack thereof).
+My final project is a DNS-based approval system. It will reach out to regular Internet users (outside the blockchain) with an approval request, and record their response (or lack thereof).
 
 The user interface can be accessed here: https://static.cloudmatica.com/blockchain/index.html
 
