@@ -17,10 +17,10 @@
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Create Request</a>
+                <a class="nav-link active" aria-current="page" href="#createApprovalRequest">Create Request</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">List Requests</a>
+                <a class="nav-link" href="#getApprovalRequest">Get Request</a>
               </li>
             </ul>
           </div>
@@ -44,8 +44,20 @@
             <button id="create" type="submit" class="btn btn-primary">Create</button>
         </form>
     </div>
+    <hr class="m-5"/>
+    <div class="container mt-2">
+        <form id="getApprovalRequest">
+            <div class="mb-3">
+                <label for="requestId" class="form-label">Approval Request Id</label>
+                <input type="number" class="form-control" name="requestId" id="requestId" required>
+            </div>
+            <button id="get" type="submit" class="btn btn-primary">Get</button>
+        </form>
+        <div id="output" class="m-3"></div>
+    </div>
 
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.0-rc.0/web3.min.js" integrity="sha512-/PTXSvaFzmO4So7Ghyq+DEZOz0sNLU4v1DP4gMOfY3kFu9L/IKoqSHZ6lNl3ZoZ7wT20io3vu/U4IchGcGIhfw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="index.js"></script>
   </body>
 </html>

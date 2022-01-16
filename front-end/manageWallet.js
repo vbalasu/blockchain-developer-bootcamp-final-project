@@ -1,5 +1,6 @@
 var Web3 = require('web3');
-var web3 = new Web3('http://localhost:7545');
+//var web3 = new Web3('http://localhost:7545');
+var web3 = new Web3('https://ropsten.infura.io/v3/575bff3c07814421ae83000e25d2993e');
 async function getBalance(address) {
     var balance = await web3.eth.getBalance(address);
     return web3.utils.fromWei(balance, 'ether');
