@@ -236,7 +236,8 @@ async function submitTransaction(data) {
     web3 = new Web3(window.ethereum);
     approvalRequest = new web3.eth.Contract(abi, contractAddress);
     console.log(web3.givenProvider.selectedAddress);
-    approvalRequest.methods.create(data.approverEmail, data.contents, data.approvalWindowMinutes).send({from: web3.givenProvider.selectedAddress});
+    await approvalRequest.methods.create(data.approverEmail, data.contents, data.approvalWindowMinutes).send({from: web3.givenProvider.selectedAddress});
+    return true;
 }
 
 async function getLength() {
@@ -244,7 +245,7 @@ async function getLength() {
     web3 = new Web3(window.ethereum);
     approvalRequest = new web3.eth.Contract(abi, contractAddress);
     var length = await approvalRequest.methods.length().call();
-    console.log(length);
+    return length;
 }
 
 async function getRequest(_id) {
@@ -265,7 +266,7 @@ function processForm() {
 }
 
 var form = document.querySelector('#createApprovalRequest');
-form.addEventListener('submit', (event) => {
+form.addEventListener('submit', async (event) => {
     // if (!form.checkValidity()) {
     //     event.preventDefault()
     //     event.stopPropagation()
@@ -275,7 +276,10 @@ form.addEventListener('submit', (event) => {
       event.preventDefault()
       event.stopPropagation()
       console.log(formData);
-      submitTransaction(formData);
+      var result = await submitTransaction(formData);
+      window.length = parseInt(await getLength());
+      document.querySelector('#message').innerHTML = `Created Request Id ${window.length - 1}`;
+      document.querySelector('#message').classList.remove('d-none')
 });
 
 var getForm = document.querySelector('#getApprovalRequest');
@@ -286,8 +290,7 @@ getForm.addEventListener('submit', async (event) => {
       event.stopPropagation()
       console.log(requestId);
       data = await getRequest(requestId);
-      window.output = `Id: ${data.id}<br>
-        Request Date: ${new Date(parseInt(data.id)*1000).toISOString()}<br>
+      window.output = `Request Date: ${new Date(parseInt(data.id)*1000).toISOString()}<br>
         Approver Email: ${data.approverEmail}<br>
         Contents: ${data.contents}<br>
         Approval Window (minutes): ${data.approvalWindowMinutes}<br>
